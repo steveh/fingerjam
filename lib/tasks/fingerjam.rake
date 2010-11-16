@@ -15,12 +15,12 @@ namespace :fingerjam do
 
     hashes = {}
 
-    Pathname.glob(relative_root + "**" + "*.{#{Fingerjam.extensions.join(",")}}").each do |absolute_path|
+    Pathname.glob(relative_root + "**" + "*.{#{Fingerjam::Base.extensions.join(",")}}").each do |absolute_path|
       relative_path = "/" + absolute_path.relative_path_from(relative_root).to_s
-      hashes[relative_path] = Fingerjam.generate_hash(absolute_path)
+      hashes[relative_path] = Fingerjam::Base.generate_hash(absolute_path)
     end
 
-    File.open(Fingerjam.lockfile, "w") do |lockfile|
+    File.open(Fingerjam::Base.lockfile, "w") do |lockfile|
       lockfile.puts hashes.to_yaml
     end
   end

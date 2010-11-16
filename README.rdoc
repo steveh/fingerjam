@@ -1,9 +1,28 @@
 = fingerjam
 
-Description goes here.
+Fingerjam uploads your Jammit-compressed assets with fingerprinted filenames so they can be cached indefinitely.
+
+Fingerjam will install a capistrano task to package assets with Jammit, write config/assets.lock.yml, and upload the files to the web.
+
+== Usage
+
+* Configure Capistrano & Jammit
+
+* Add code similar to the following to config/deploy.rb:
+
+    set :cache_to, "/srv/www/cache.example.com/public/"
+    require "fingerjam/capistrano"
+
+* Add code similar to the following to config/initializers/fingerjam.rb:
+
+    Fingerjam::Base.configure(:host => "cache.example.com")
+
+* Execute cap deploy
+
+    bundle exec cap deploy
 
 == Contributing to fingerjam
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -14,6 +33,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Steve Hoeksema. See LICENSE.txt for
-further details.
-
+Copyright (c) 2010 Steve Hoeksema. See LICENSE.txt for further details.

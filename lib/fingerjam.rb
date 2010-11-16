@@ -1,5 +1,4 @@
-require "fingerjam/fingerjam"
+require "fingerjam/base"
 require "fingerjam/helpers"
 require "fingerjam/jammit"
-
-::ActionView::Base.send(:include, FingerjamHelpers)
+require "fingerjam/railtie.rb"

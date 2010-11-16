@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/steveh/fingerjam"
   gem.license = "MIT"
   gem.summary = %Q{Fingerjam uploads your Jammit-compressed assets with fingerprinted filenames so they can be cached indefinitely}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Fingerjam uploads your Jammit-compressed assets with fingerprinted filenames so they can be cached indefinitely}
   gem.email = "steve@seven.net.nz"
   gem.authors = ["Steve Hoeksema"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

@@ -1,0 +1,17 @@
+* Write tests
+* Specify correct dependency versions
+* Remove dependency on Capistrano - Fingerjam can still be used with another deployment tool
+* Remove dependency on Jammit - Fingerjam can still be used to some extent without Jammit
+* If not using Jammit, hook into Rails' stylesheet parser to rewrite background(url: ...)
+* If not using Jammit, hook into Rails' cache parameter for javascripts and stylesheets
+* Allow alternate cached file name generation strategies, eg deadbeef.js without the relative path prefix for shorter URL's
+* Allow more specific exclusions or inclusions of files to package and upload
+* Investigate alternate upload methods, eg rsync, S3
+* Allow user-configurable extensions
+* Write a generator to add assets.lock.yml to .gitignore
+* Write description of purpose, installation, usage
+* Write examples
+* Refactor Rake and Cap tasks so they can be run independently
+* Extend or alias, rather than override, Rails and Jammit helper methods
+* Support alternate methods of retrieving a list of hashes than a lockfile
+* Refactor Fingerjam::Base into logically separate classes

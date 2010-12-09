@@ -7,6 +7,7 @@ namespace :fingerjam do
   desc "Package assets with Jammit"
   task :package => :environment do
     Jammit.package!(:force => true)
+    `jammit -f`
   end
 
   desc "Lock packages to assets.lock.yml"

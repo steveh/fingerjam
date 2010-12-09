@@ -3,7 +3,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   namespace :fingerjam do
 
     desc "Package, lock and upload assets"
-    task :upload, { :roles => :web } do
+    task :upload_public, { :roles => :web } do
       run_locally "rake fingerjam:package"
       run_locally "rake fingerjam:lock"
 
@@ -20,8 +20,15 @@ Capistrano::Configuration.instance(:must_exist).load do
       top.upload(lockfile, File.join(release_path, "config", "assets.lock.yml"))
     end
 
+    desc "Upload lockfile"
+    task :upload_lockfile, { :roles => :app } do
+      lockfile = File.realpath(File.join("config", "assets.lock.yml"))
+      top.upload(lockfile, File.join(release_path, "config", "assets.lock.yml"))
+    end
+
   end
 
-  after "deploy:finalize_update", "fingerjam:upload"
+  after "deploy:finalize_update", "fingerjam:upload_public"
+  after "deploy:finalize_update", "fingerjam:upload_lockfile"
 
 end

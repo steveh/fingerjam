@@ -1,4 +1,5 @@
 require "fingerjam/base"
 require "fingerjam/helpers"
 require "fingerjam/jammit"
-require "fingerjam/railtie.rb"
+require "fingerjam/railtie"
+require "fingerjam/fix_jammit_encoding"

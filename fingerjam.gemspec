@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fingerjam}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve Hoeksema"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/fingerjam.rb",
     "lib/fingerjam/base.rb",
     "lib/fingerjam/capistrano.rb",
+    "lib/fingerjam/fix_jammit_encoding.rb",
     "lib/fingerjam/helpers.rb",
     "lib/fingerjam/jammit.rb",
     "lib/fingerjam/railtie.rb",

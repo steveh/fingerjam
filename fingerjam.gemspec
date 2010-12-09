@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fingerjam}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve Hoeksema"]
-  s.date = %q{2010-11-16}
+  s.date = %q{2010-12-09}
   s.description = %q{Fingerjam uploads your Jammit-compressed assets with fingerprinted filenames so they can be cached indefinitely}
   s.email = %q{steve@seven.net.nz}
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "TODO.rdoc",
     "VERSION",
     "fingerjam.gemspec",
     "lib/fingerjam.rb",

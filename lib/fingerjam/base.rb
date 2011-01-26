@@ -129,14 +129,14 @@ module Fingerjam
 
             # Gzip version of asset
             src_c_path = File.join(public_path, (relative_path[1..relative_path.length] + ".gz"))
-            dst_c_path = File.join(public_path, (cached_path[1..cached_path.length] + ".gz"))
+            dst_c_path = File.join(public_path, (cached_path[1..cached_path.length]     + ".gz"))
 
             # Create root directory
             FileUtils.mkdir_p(File.dirname(dst_u_path))
 
             # Create relative symlink from RAILS_ROOT/public/cache/$MD5SUM.$EXT to original file
-            File.symlink(".." + relative_path, dst_u_path.to_s) if !File.exists?(dst_u_path)
-            File.symlink(".." + relative_path, dst_c_path.to_s) if !File.exists?(dst_c_path) && File.exists?(src_c_path)
+            File.symlink(".." + relative_path,         dst_u_path.to_s) if !File.exists?(dst_u_path)
+            File.symlink(".." + relative_path + ".gz", dst_c_path.to_s) if !File.exists?(dst_c_path) && File.exists?(src_c_path)
 
             cached_urls[relative_path] = generate_cached_url(relative_path)
           end

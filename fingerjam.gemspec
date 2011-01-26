@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fingerjam}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve Hoeksema"]
-  s.date = %q{2010-12-09}
+  s.date = %q{2011-01-27}
   s.description = %q{Fingerjam uploads your Jammit-compressed assets with fingerprinted filenames so they can be cached indefinitely}
   s.email = %q{steve@seven.net.nz}
   s.extra_rdoc_files = [
@@ -30,11 +30,12 @@ Gem::Specification.new do |s|
     "lib/fingerjam.rb",
     "lib/fingerjam/base.rb",
     "lib/fingerjam/capistrano.rb",
+    "lib/fingerjam/capistrano/configuration.rb",
+    "lib/fingerjam/capistrano/strategy.rb",
     "lib/fingerjam/fix_jammit_encoding.rb",
     "lib/fingerjam/helpers.rb",
     "lib/fingerjam/jammit.rb",
     "lib/fingerjam/railtie.rb",
-    "lib/tasks/fingerjam.rake",
     "spec/fingerjam_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -56,6 +57,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
       s.add_runtime_dependency(%q<jammit>, [">= 0"])
       s.add_runtime_dependency(%q<capistrano>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.1.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -64,6 +66,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rails>, [">= 3.0.0"])
       s.add_dependency(%q<jammit>, [">= 0"])
       s.add_dependency(%q<capistrano>, [">= 0"])
+      s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.1.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -73,6 +76,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rails>, [">= 3.0.0"])
     s.add_dependency(%q<jammit>, [">= 0"])
     s.add_dependency(%q<capistrano>, [">= 0"])
+    s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.1.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.1"])

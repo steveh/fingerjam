@@ -3,6 +3,7 @@ source "http://rubygems.org"
 gem "rails", ">= 3.0.0"
 gem "jammit"
 gem "capistrano"
+gem "activesupport"
 
 group :development do
   gem "rspec", "~> 2.1.0"

@@ -24,7 +24,7 @@ module Fingerjam
         self.host            = options.delete(:host)         || "www.example.com"
         self.cache_prefix    = options.delete(:cache_prefix) || "/cache/"
 
-        self.root_path       = options.delete(:root_path)
+        self.root_path       = options.delete(:root_path)       || Rails.root
         self.assets_yml_path = options.delete(:assets_yml_path) || File.join(root_path, "config", "assets.yml")
         self.lock_yml_path   = options.delete(:lock_yml_path)   || File.join(root_path, "config", "assets.lock.yml")
         self.public_path     = options.delete(:public_path)     || File.join(root_path, "public")

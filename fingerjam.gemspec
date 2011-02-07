@@ -19,12 +19,13 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
-  s.add_runtime_dependency(%q<jammit>, [">= 0"])
-  s.add_runtime_dependency(%q<capistrano>, [">= 0"])
-  s.add_runtime_dependency(%q<activesupport>, [">= 0"])
+  s.add_runtime_dependency(%q<rails>, ["~> 3.0"])
+  s.add_runtime_dependency(%q<jammit>, ["~> 1.6"])
+  s.add_runtime_dependency(%q<capistrano>, ["~> 2.5"])
+  s.add_runtime_dependency(%q<activesupport>, ["~> 3.0"])
+  s.add_runtime_dependency(%q<actionpack>, ["~> 3.0"])
 
-  s.add_development_dependency(%q<rspec>, ["~> 2.1.0"])
-  s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+  s.add_development_dependency(%q<rspec>, ["~> 2.5"])
+  s.add_development_dependency(%q<bundler>, ["~> 1.0"])
   s.add_development_dependency(%q<rcov>, [">= 0"])
 end

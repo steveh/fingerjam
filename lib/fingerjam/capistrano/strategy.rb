@@ -63,6 +63,7 @@ module Capistrano
 
           ::Fingerjam::Base.configure(
             :host      => cache_host,
+            :protocol  => cache_protocol,
             :root_path => destination
           )
 

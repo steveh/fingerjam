@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency(%q<rails>, ["~> 3.0"])
-  s.add_runtime_dependency(%q<jammit>, ["~> 1.6"])
+  s.add_runtime_dependency(%q<jammit>, ["~> 0.6"])
   s.add_runtime_dependency(%q<capistrano>, ["~> 2.5"])
   s.add_runtime_dependency(%q<activesupport>, ["~> 3.0"])
   s.add_runtime_dependency(%q<actionpack>, ["~> 3.0"])

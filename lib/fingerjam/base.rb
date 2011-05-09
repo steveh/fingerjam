@@ -41,7 +41,9 @@ module Fingerjam
 
         self.enabled         = !cached_urls.empty? && Rails.env.production?
 
-        Jammit.const_set("ASSET_ROOT", root_path)
+        silence_warnings do
+          Jammit.const_set("ASSET_ROOT", root_path)
+        end
       end
 
       def enabled?

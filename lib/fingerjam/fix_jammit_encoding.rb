@@ -12,7 +12,7 @@ module Jammit
       js = js.force_encoding('utf-8')
       Jammit.compress_assets ? @js_compressor.compress(js) : js
     end
-    
+
   end
-  
+
 end

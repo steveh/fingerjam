@@ -6,4 +6,3 @@ Capistrano::Configuration.instance(:must_exist).load do
   _cset(:cache_protocol) { "https" }
 
 end
-

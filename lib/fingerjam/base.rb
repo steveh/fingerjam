@@ -43,6 +43,8 @@ module Fingerjam
 
         silence_warnings do
           Jammit.const_set("ASSET_ROOT", root_path)
+          Jammit.const_set("PUBLIC_ROOT", public_path)
+          Jammit.const_set("DEFAULT_CONFIG_PATH", assets_yml_path)
         end
       end
 

@@ -49,7 +49,7 @@ module Capistrano
           fingerjam
 
           logger.trace "compressing #{destination} to #{filename}"
-          Dir.chdir(tmpdir) { system(compress(File.basename(destination), File.basename(filename)).join(" ")) }
+          Dir.chdir(copy_dir) { system(compress(File.basename(destination), File.basename(filename)).join(" ")) }
 
           upload(filename, remote_filename)
           run "cd #{configuration[:releases_path]} && #{decompress(remote_filename).join(" ")} && rm #{remote_filename}"

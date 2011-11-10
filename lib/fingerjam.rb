@@ -1,6 +1,7 @@
 require "active_support/core_ext/class/attribute_accessors"
 require "digest/md5"
 require "yaml"
+require "jammit"
 
 require "fingerjam/base"
 require "fingerjam/helpers"

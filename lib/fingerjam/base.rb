@@ -139,8 +139,15 @@ module Fingerjam
             FileUtils.mkdir_p(File.dirname(dst_u_path))
 
             # Create relative symlink from RAILS_ROOT/public/cache/$MD5SUM.$EXT to original file
-            File.symlink(".." + relative_path,         dst_u_path.to_s) if !File.exists?(dst_u_path)
-            File.symlink(".." + relative_path + ".gz", dst_c_path.to_s) if !File.exists?(dst_c_path) && File.exists?(src_c_path)
+            begin
+              File.symlink(".." + relative_path, dst_u_path.to_s) if !File.exists?(dst_u_path)
+            rescue Errno::EEXIST
+            end
+
+            begin
+              File.symlink(".." + relative_path + ".gz", dst_c_path.to_s) if !File.exists?(dst_c_path) && File.exists?(src_c_path)
+            rescue Errno::EEXIST
+            end
 
             cached_urls[relative_path] = generate_cached_url(relative_path)
           end

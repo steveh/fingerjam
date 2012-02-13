@@ -127,26 +127,43 @@ module Fingerjam
 
         def symlink
           cached_paths.each_pair do |relative_path, cached_path|
-            # Strip leading / from relative path to determine absolute path
-            src_u_path = File.join(public_path, relative_path[1..relative_path.length])
-            dst_u_path = File.join(public_path, cached_path[1..cached_path.length])
-
-            # Gzip version of asset
-            src_c_path = File.join(public_path, (relative_path[1..relative_path.length] + ".gz"))
-            dst_c_path = File.join(public_path, (cached_path[1..cached_path.length]     + ".gz"))
-
-            # Create root directory
-            FileUtils.mkdir_p(File.dirname(dst_u_path))
-
             # Create relative symlink from RAILS_ROOT/public/cache/$MD5SUM.$EXT to original file
             begin
-              File.symlink(".." + relative_path, dst_u_path.to_s) if !File.exists?(dst_u_path)
-            rescue Errno::EEXIST
+              # Strip leading / from relative path to determine absolute path
+              src_u_path = File.join(public_path, relative_path[1..relative_path.length])
+              dst_u_path = File.join(public_path, cached_path[1..cached_path.length])
+
+              # Create root directory
+              FileUtils.mkdir_p(File.dirname(dst_u_path))
+
+              old_path = ".." + relative_path
+              new_path = dst_u_path.to_s
+
+              # puts "symlink #{old_path} to #{new_path}"
+
+              if !File.exists?(new_path) && File.exists?(src_u_path)
+                File.symlink(old_path, new_path)
+              end
+            rescue Errno::EEXIST => error
+              # puts error.message
             end
 
+            # Create relative symlink from RAILS_ROOT/public/cache/$MD5SUM.$EXT.gz to original file
             begin
-              File.symlink(".." + relative_path + ".gz", dst_c_path.to_s) if !File.exists?(dst_c_path) && File.exists?(src_c_path)
-            rescue Errno::EEXIST
+              # Gzip version of asset
+              src_c_path = File.join(public_path, (relative_path[1..relative_path.length] + ".gz"))
+              dst_c_path = File.join(public_path, (cached_path[1..cached_path.length]     + ".gz"))
+
+              old_path = ".." + relative_path + ".gz"
+              new_path = dst_c_path.to_s
+
+              # puts "symlink #{old_path} to #{new_path}"
+
+              if !File.exists?(new_path) && File.exists?(src_c_path)
+                File.symlink(old_path, new_path)
+              end
+            rescue Errno::EEXIST => error
+              # puts error.message
             end
 
             cached_urls[relative_path] = generate_cached_url(relative_path)
@@ -154,7 +171,7 @@ module Fingerjam
         end
 
         def write_lockfile
-          puts "writing lockfile #{lock_yml_path}"
+          # puts "writing lockfile #{lock_yml_path}"
 
           File.open(lock_yml_path, "w") do |lockfile|
             lockfile.puts cached_urls.to_yaml
